@@ -31,3 +31,18 @@ const partition = (arr, low, high) => {
 const nums = [1, 9, 4, 6, 20, 1, 2, 4, 34, 5, 7, 8];
 
 console.log(quickSort(nums));
+
+
+/* Quick Sort
+    * Time Complexity:
+    * Best:    O(n log n)
+    * Average: O(n log n)
+    * Worst:   O(n²)
+    *
+    * Space Complexity:
+    * Best:    O(log n)
+    * Average: O(log n)
+    * Worst:   O(n)
+    *
+    * Stable: No
+*/ 
