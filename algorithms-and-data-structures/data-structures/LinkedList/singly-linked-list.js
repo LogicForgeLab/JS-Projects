@@ -8,7 +8,7 @@ class Node {
 class SList {
   constructor(iterables = []) {
     this.head = null;
-    this._size = 0;
+    this.size = 0;
 
     for (const value of iterables) {
       this.push_back(value);
@@ -26,12 +26,12 @@ class SList {
   }
 
   get size() {
-    return this._size;
+    return this.size;
   }
 
   clear() {
     this.head = null;
-    this._size = 0;
+    this.size = 0;
   }
 
   push_back(elem) {
@@ -49,14 +49,14 @@ class SList {
       current.next = node;
     }
 
-    this._size++;
+    this.size++;
   }
 
   push_front(elem) {
     const node = new Node(elem, this.head);
 
     this.head = node;
-    this._size++;
+    this.size++;
   }
 
   pop_back() {
@@ -76,7 +76,7 @@ class SList {
       current.next = null;
     }
 
-    this._size--;
+    this.size--;
   }
 
   pop_front() {
@@ -85,7 +85,7 @@ class SList {
     }
 
     this.head = this.head.next;
-    this._size--;
+    this.size--;
   }
 
   toArray() {
@@ -113,7 +113,7 @@ class SList {
   }
 
   at(index) {
-    if (index < 0 || index >= this._size) {
+    if (index < 0 || index >= this.size) {
       throw new Error("Index out of range");
     }
 
@@ -127,7 +127,7 @@ class SList {
   }
 
   insert(index, value) {
-    if (index < 0 || index > this._size) {
+    if (index < 0 || index > this.size) {
       throw new Error("Index out of range");
     }
 
@@ -145,11 +145,11 @@ class SList {
     const node = new Node(value, current.next);
     current.next = node;
 
-    this._size++;
+    this.size++;
   }
 
   erase(index) {
-    if (index < 0 || index >= this._size) {
+    if (index < 0 || index >= this.size) {
       throw new Error("Index out of range");
     }
 
@@ -165,7 +165,7 @@ class SList {
     }
 
     current.next = current.next.next;
-    this._size--;
+    this.size--;
   }
 
   reverse() {
@@ -193,7 +193,7 @@ class SList {
   remove(value) {
     while (this.head && this.head.data === value) {
       this.head = this.head.next;
-      this._size--;
+      this.size--;
     }
 
     let current = this.head;
@@ -201,7 +201,7 @@ class SList {
     while (current && current.next) {
       if (current.next.data === value) {
         current.next = current.next.next;
-        this._size--;
+        this.size--;
       } else {
         current = current.next;
       }
